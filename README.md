@@ -167,6 +167,8 @@ grade_quiz / recommend_level (grading.py, 순수 파이썬 — LLM 미사용)
 역할군을 기준으로 3명이 파일을 나눠 담당한다. 같은 역할군 안에서는 서로의 파일을
 직접 고치지 않고, 인터페이스(함수 시그니처)만 맞춰 조율한다.
 
+* 이지영: UI & Store & 통합
+
 | 역할군                        | 담당     | 파일                                        | 설계서                                        |
 | -------------------------- | ------ | ----------------------------------------- | ------------------------------------------ |
 | **AgentCore**              | 박서윤    | `agent.py`                                | **2.1** Agent 조립                           |
@@ -176,7 +178,7 @@ grade_quiz / recommend_level (grading.py, 순수 파이썬 — LLM 미사용)
 | <br />                     | <br /> | `service.py`                              | **2.2** 오케스트레이션 (`LearningSession`)        |
 | <br />                     | <br /> | `config.py`                               | 1.5, 2.3 환경변수·상수                           |
 | <br />                     | <br /> | `app_cli.py`, `app.py`, `mock_service.py` | — 진입점(터미널/Streamlit/목업)                    |
-| **Structured Output & 로직** | 이지영    | `schemas.py`                              | **2.4** Pydantic 스키마                       |
+| **Structured Output & 로직** | 이헌준    | `schemas.py`                              | **2.4** Pydantic 스키마                       |
 | <br />                     | <br /> | `chains.py`                               | 2.4 LCEL 체인 (추천/학습자료/퀴즈)                   |
 | <br />                     | <br /> | `prompts/generation.py`                   | 2.4 체인 프롬프트 템플릿                            |
 | <br />                     | <br /> | `grading.py`                              | 2.2 (10\~11) 채점·난이도 추천                     |
@@ -189,6 +191,8 @@ grade_quiz / recommend_level (grading.py, 순수 파이썬 — LLM 미사용)
 | <br />                     | <br /> | `Img/*.mov`, `Img/screenshots/`           | 시연 영상 / README용 캡처                         |
 
 ***
+
+<br />
 
 ## 7. Agent 설계 핵심 — 왜 이렇게 구성했나
 
