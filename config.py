@@ -56,9 +56,10 @@ LEVEL_DOWN_THRESHOLD = 0.4  # 정답률 40% 이하 → 하향 추천
 
 # ──────────────────────────────────────────────────────────────
 # 4. 뉴스 API 설정 (설계서 2.5 news_search, 1.5 안정성)
+#    provider(Guardian) 고유 키/URL은 tools.py 가 자체적으로 os.getenv 로 읽는다
+#    (파일 소유권 규칙 — tools.py 의 헤더 코멘트 참고). 여기 남기는 값들은
+#    provider 와 무관하게 쓰이는 공통 설정뿐이다.
 # ──────────────────────────────────────────────────────────────
-NEWS_API_KEY = os.getenv("NEWS_API_KEY", "")
-NEWS_API_URL = "https://newsapi.org/v2/everything"
 NEWS_SEARCH_TIMEOUT = 10          # 초
 NEWS_SEARCH_MAX_RETRY = 1         # 실패 시 1회 재시도
 NEWS_RAW_PAGE_SIZE = 15           # LLM에 넘길 원본 기사 후보 개수

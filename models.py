@@ -1,7 +1,6 @@
 """
 models.py — LLM 인스턴스 생성 (설계서 2.3)
 
-강의 [3] LangChain "1. Chat Model" 의 init_chat_model 방식 그대로 사용.
   - 모델1(메인)  : 대화·생성 전반
   - 모델2(분류)  : 입력 가드레일 전용, Temperature 0
 """

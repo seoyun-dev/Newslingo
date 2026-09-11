@@ -27,7 +27,6 @@ from .prompts import MAIN_SYSTEM_PROMPT
 
 # ──────────────────────────────────────────────────────────────
 # Custom : Store 의 선호 주제/난이도를 System Prompt 에 주입
-#   (강의 [5] "1-1. System Message 동적 정의" 의 wrap_model_call → dynamic_prompt 축약형)
 # ──────────────────────────────────────────────────────────────
 @dynamic_prompt
 def profile_injection(request) -> str:

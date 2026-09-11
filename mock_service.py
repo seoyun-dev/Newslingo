@@ -365,13 +365,20 @@ class MockLearningSession:
         return result, recommendation
 
     # ── 12~14단계: 난이도 조정 제안 ─────────────────────────────
-    def propose_level_change(self, recommendation: LevelRecommendation) -> dict:
-        if not recommendation.is_change():
-            return {"reply": recommendation.message, "interrupt": None}
-        self._pending_level_change = recommendation.suggested_level
+    def request_level_change(self, target_level: str) -> dict:
+        """service.py 의 request_level_change(target_level) 과 동일한 인터페이스.
+
+        추천 방향과 무관하게 사용자가 직접 고른 target_level 을 그대로 받는다
+        (추천이 '유지'여도 사용자가 상/하향을 선택할 수 있어야 하므로).
+        """
+        if target_level not in config.LEVELS:
+            raise ValueError(f"난이도는 {config.LEVELS} 중 하나여야 합니다.")
+        if target_level == self._profile["level"]:
+            return {"reply": f"현재 '{target_level}' 난이도를 유지할게요.", "interrupt": None}
+        self._pending_level_change = target_level
         return {
             "reply": None,
-            "interrupt": f"난이도를 '{recommendation.suggested_level}'(으)로 변경할까요? (목업 확인)",
+            "interrupt": f"난이도를 '{target_level}'(으)로 변경할까요? (목업 확인)",
         }
 
     # ── 내부 헬퍼 ────────────────────────────────────────────
